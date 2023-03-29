@@ -10,7 +10,7 @@
 - Name (string)
 - age (int)
 - dishes (dishobject)
-- Score (int)
+- Score (double)
 - desc (string)
 - location (string)
 - price (double)
