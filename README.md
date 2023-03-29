@@ -21,8 +21,9 @@
 - String prepTime,
 - String note
 
-## Tips 
-lanch service:
-java -jar target/grannyService-0.0.1-SNAPSHOT.jar
+## Tips
+build service: mvn clean install
+lanch service: java -jar target/grannyService-0.0.1-SNAPSHOT.jar
+
 
 
