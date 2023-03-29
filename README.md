@@ -14,6 +14,6 @@
 - desc (string)
 - location (string)
 - price (double)
-- urlProfilePicture (string)
+- urlPicture (string)
 
 
