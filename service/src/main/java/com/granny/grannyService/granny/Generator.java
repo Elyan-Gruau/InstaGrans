@@ -9,16 +9,21 @@ public class Generator {
     private Random random;
     private final int minAge = 60;
     private final int maxAge = 103;
-    private final int maxScore = 5;
+    private final int maxScore = 9;
     private final int minPrice = 20;
     private final int maxPrice = 80;
-    private final int maxPrepTime = 300;
+    private final int maxPrepTime = 180;
     private final int minPrepTime = 5;
 
     private final String[] names = {"Anita","Brigitte","Bernadette","Claude","Rémonde","Joséphine","Gertrude","Lucette",
             "Jinette","Martine","Nathalie","Françoise","Anne","Marie-France","Marie-Anne","Anne-Marie","Jeanne","Isabelle",
             "Martine","Nadine","Béatrice","Monique","Colette","Francine","Thérèse","Josianne","Gisèle","Murielle","Aline",
-            "Paule","Albertine","Capucine","Chistiane","Christine","Catherine","Odile","Michelle","Noëlle","Natalia"
+            "Paule","Albertine","Capucine","Chistiane","Christine","Catherine","Odile","Michelle","Noëlle","Natalia","Marinette",
+            "Claudette", "Paulette","Georgette","Joëlle","Sylvianne","Lilianne","Lucienne","Constance","Cibille","Ginnette",
+            "Jeanette","Marie-Pierre","Jinnette","Cunégonde","Rosemonde","Rémonde","Huguette","Josette","Lucette","Josianne",
+            "André","Chantal","Anriette","Rennée","Josie","Rose","Antoinette","Marie-jeanne","Marise","Marie-Lousie","Louise",
+            "Danielle","Marceline","Mauricette","Germaine","Giselle","Francine","Francette","Antonella","Jeannine","Ursule,",
+            "Ursula","Lina","Leone","Leonnie,","Margot","Bernadette","Juliette","Nadège","Evelyne","Jacqueline","Jacquie"
     };
     private final String[] locations = {
             "Nice",
@@ -44,7 +49,7 @@ public class Generator {
             "Aix-en-Provence"
     };
     private final String[] descriptions = {
-            "Je vous parlerais de mes petits-fils décédés.",
+            "Je vous parlerais de mon club de bridge.",
             "Je suis une grand-mère dynamique et active qui adore voyager et découvrir de nouvelles cultures. J'aime les promenades en plein air, les musées, les films et les bons restaurants.",
             "Je suis une grand-mère érudite et cultivée qui aime lire des livres et regarder des documentaires. J'aime les conversations intellectuelles et les débats animés.",
             "Je suis une grand-mère douce et aimante qui adore passer du temps avec ma famille et mes petits-enfants. J'aime cuisiner de bons plats traditionnels et écouter de la musique classique.",
@@ -67,7 +72,12 @@ public class Generator {
             "Je suis constamment dans les choux.",
             "J'ai beau être drôle et coquette, ne me prenez pas pour le dindon de la farce.",
             "Je vous passerais l'envie d'acheter des plats industriels",
-            "La meilleure, en tout points. :)"
+            "La meilleure, en tout points. :)",
+            "Comment ça marche deja, Amstramgrans?",
+            "Mère au foyer depuis toujours, je vous concocterais de superbes plat",
+            "De loin la moins chère de toute la plateforme.",
+            "C'est sert à quoi ?"
+
 
     };
 
@@ -77,15 +87,30 @@ public class Generator {
             "Cordon bleu","Crêpes","Hachis parmentier","Soupe à l'ail","Pissaladière","Fondue Savoyarde","Fondue Bourguignonne",
             "Pâtes bolognaise","Gaufres","Quatre-quarts","Café gourmand","Daube de boeuf carottes","Blanquette de veau",
             "Purée de pommes de terre","Blanc de dinde à la moutarde","Rôti de veau","Gratin dauphinois","Pot au feu",
-            "Filet mignon de porc"
+            "Filet mignon de porc","Escalope à la milanaise"
     };
 
     private final String[] dishNotes = {
-            "Oh zut, ça écris ce que je dit. Hihi c'est drôle comment on enlève cette connerie ?",
-            "Succulent",
+            "Oh zut, ça écrit ce que je dis. Hihi, c'est drôle comment on enlève cette connerie ?",
+            "Tout simplement succulent",
             "Fantastiquement délicieux",
             "Exquis",
-            "Fondant"
+            "Fondant",
+            "Réchauffe l'estomac et l'âme",
+            "Succulent",
+            "Pas mauvais",
+            "Délicieux",
+            "Je sais pas quoi dire",
+            "Le plat réconfortant par excellence",
+            "Ce que je fait de mieux !",
+            "Je vous préviens, ça fait pas longtemps que j'en fait",
+            "C'est meilleur chaud !",
+            "Attendez de voir ce que je faire d'autre !",
+            "De loin mon plat le plus réussit !",
+            "Vaut le détour",
+            "Fait avec amour !",
+            "Beaucoup trop bon!"
+
     };
 
     public Generator(){
@@ -147,12 +172,50 @@ public class Generator {
     }
 
     private String getRandomPrepTime() {
-        int time = random.nextInt(maxPrepTime-minPrepTime)+minPrepTime;
-        return time +" minutes";
+        int min = minPrepTime;
+        int max = maxPrepTime;
+        int alea = random.nextInt(101);
+        if (alea>99){
+            min=240;
+        }else if (alea>80){
+            max=120;
+        }else if (alea>50){
+            max=90;
+        }else {
+            alea =60;
+        }
+
+        int minute = random.nextInt(max-min)+min;
+        int hour = 0;
+        while (minute > 60 ){
+            minute -=60;
+            hour++;
+        }
+        if (hour>0){
+            if (minute<10){
+                return hour + "h0"+minute;
+            }
+            return hour + "h"+minute;
+        }
+        return minute +" minutes";
     }
 
     private int getRandomAge() {
-        return random.nextInt(maxAge -minAge) + minAge;
+        int alea = random.nextInt(101);
+        int min=minAge;
+        int max=maxAge;
+        if (alea>99){
+            min=100;
+        }else if (alea>80){
+            min=90;
+            max=100;
+        }else if (alea>50){
+            min=80;
+            max=90;
+        }else{
+            max=80;
+        }
+        return random.nextInt(max -min) + min;
     }
 
     private ArrayList<Dish> getRandomDishes(int min, int max) {
@@ -163,10 +226,8 @@ public class Generator {
             if (!dishes.contains(dish)){
                 dishes.add(dish);
             }
-
         }
         return dishes;
-
     }
 
     public ArrayList<Granny> getNewGrannies(int number){
