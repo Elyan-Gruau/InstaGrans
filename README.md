@@ -2,6 +2,17 @@
 
 ## Features
 - fondu au lancement + son COC
-- page de profil
-- page de défilement 
-- panier 
+- page de profil des Grannies
+- page de défilement (discover) + search bar
+- panier + api paypal
+
+## Grannobject
+- Name
+- age
+- dishes (dishobject)
+- Score
+- desc
+- location
+- price
+
+
