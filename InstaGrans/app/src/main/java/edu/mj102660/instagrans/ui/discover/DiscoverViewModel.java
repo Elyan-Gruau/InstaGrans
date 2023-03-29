@@ -1,16 +1,16 @@
-package edu.mj102660.instagrans.ui.dashboard;
+package edu.mj102660.instagrans.ui.discover;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class DiscoverViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public DiscoverViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("Discover");
     }
 
     public LiveData<String> getText() {

@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.ui.home;
+package edu.mj102660.instagrans.ui.discover;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.mj102660.instagrans.databinding.FragmentHomeBinding;
+import edu.mj102660.instagrans.databinding.FragmentDiscoverBinding;
 
-public class HomeFragment extends Fragment {
+public class DiscoverFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentDiscoverBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        DiscoverViewModel discoverViewModel =
+                new ViewModelProvider(this).get(DiscoverViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentDiscoverBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textDiscover;
+        discoverViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

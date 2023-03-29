@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_discover">
+
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="edu.mj102660.instagrans.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_news"
+        android:name="edu.mj102660.instagrans.ui.news.NewsFragment"
+        tools:layout="@layout/fragment_news"/>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="edu.mj102660.instagrans.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_discover"
+        android:name="edu.mj102660.instagrans.ui.discover.DiscoverFragment"
+        tools:layout="@layout/fragment_discover"/>
 
     <fragment
-        android:id="@+id/navigation_scrolling"
-        android:name="edu.mj102660.instagrans.ui.scrolling.ScrollingFragment"
-        android:label="@string/title_scrolling"
-        tools:layout="@layout/fragment_scrolling" />
+        android:id="@+id/navigation_cart"
+        android:name="edu.mj102660.instagrans.ui.Cart.CartFragment"
+        tools:layout="@layout/fragment_cart"/>
+
 </navigation>

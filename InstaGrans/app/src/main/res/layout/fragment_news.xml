@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.scrolling.ScrollingFragment">
+    tools:context=".ui.news.NewsFragment">
 
     <TextView
-        android:id="@+id/text_scrolling"
+        android:id="@+id/text_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
