@@ -6,6 +6,10 @@
 - page de défilement (discover) + search bar
 - panier + api paypal
 
+- POPUP  au click sur un dish pour avoir une petite description
+- Toast -> Panier Vide
+        -> Erreur
+
 ## Grannobject
 - Name (string)
 - age (int)
