@@ -1,5 +1,12 @@
 # InstaGrans
 
+
+## Utilisation
+### Service
+depuis le dossier service
+- Compilation: ``` mvn clean install ```
+- lancement: ```java -jar target/grannyService-0.0.1-SNAPSHOT.jar```
+
 ## Features
 - fondu au lancement + son COC
 - page de profil des Grannies
@@ -21,9 +28,6 @@
 - String prepTime,
 - String note
 
-## Tips
-- build service: mvn clean install
-- launch service: java -jar target/grannyService-0.0.1-SNAPSHOT.jar
 
 
 
