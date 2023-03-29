@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Granny {
     private String name;
     private int age;
-    private ArrayList<Dish> dishes;
+    private ArrayList<Dish> dishes = new ArrayList<>();
     private String desc;
     private String location;
     private double price;
@@ -23,6 +23,18 @@ public class Granny {
         this.dishes = dishes;
     }
 
+    public boolean hasDish(Dish dish){
+        if (dishes.size()>0){
+
+        }
+        for (Dish d:dishes){
+            if (d.getName().equals(dish.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -35,8 +47,16 @@ public class Granny {
         return age;
     }
 
-    public void setDishes(ArrayList<Dish> dishes) {
-        this.dishes = dishes;
+    public void setDishes(ArrayList<Dish> newDishes) {
+        if (dishes.size() == 0){
+            this.dishes.add(newDishes.get(0));
+        }
+        for (Dish d : newDishes){
+            if (!hasDish(d)){
+                this.dishes.add(d);
+            }
+        }
+
     }
 
     public String getName() {
