@@ -21,3 +21,6 @@
 - urlPicture (string)
 
 
+Maquettes :
+https://www.figma.com/file/LyGSVHHccBKRyfWmC8913f/InstaGrans?node-id=0%3A1&t=jzTni6cPAnT1WUoS-1
+
