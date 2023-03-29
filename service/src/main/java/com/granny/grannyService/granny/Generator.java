@@ -44,7 +44,7 @@ public class Generator {
             "Aix-en-Provence"
     };
     private final String[] descriptions = {
-            "Je vous parlerez de mes petits fils décédés.",
+            "Je vous parlerais de mes petits-fils décédés.",
             "Je suis une grand-mère dynamique et active qui adore voyager et découvrir de nouvelles cultures. J'aime les promenades en plein air, les musées, les films et les bons restaurants.",
             "Je suis une grand-mère érudite et cultivée qui aime lire des livres et regarder des documentaires. J'aime les conversations intellectuelles et les débats animés.",
             "Je suis une grand-mère douce et aimante qui adore passer du temps avec ma famille et mes petits-enfants. J'aime cuisiner de bons plats traditionnels et écouter de la musique classique.",
@@ -62,24 +62,30 @@ public class Generator {
             "Je suis une grand-mère qui aime cuisiner pour les occasions spéciales et les fêtes de famille. Si vous cherchez quelqu'un pour vous aider à préparer votre prochain grand événement culinaire, alors vous êtes au bon endroit !",
             "Je suis une jeune femme qui aime cuisiner des plats sains et équilibrés pour ma famille et mes amis. Si vous êtes à la recherche de recettes santé, alors vous êtes à la bonne adresse !",
             "Je suis une vieille qui adore cuisiner des plats internationaux, de la cuisine italienne à la cuisine thaïlandaise en passant par la cuisine indienne. Si vous êtes un voyageur culinaire, alors je suis là pour vous !",
-            "Je suis une grand-mère qui croit que la nourriture doit être savoureuse, mais aussi belle à regarder. Si vous êtes sensible à la présentation de vos plats, alors nous avons déjà un point en commun !"
+            "Je suis une grand-mère qui croit que la nourriture doit être savoureuse, mais aussi belle à regarder. Si vous êtes sensible à la présentation de vos plats, alors nous avons déjà un point en commun !",
+            "La meilleure de toute la région.",
+            "Je suis constamment dans les choux.",
+            "J'ai beau être drôle et coquette, ne me prenez pas pour le dindon de la farce.",
+            "Je vous passerais l'envie d'acheter des plats industriels",
+            "La meilleure, en tout points. :)"
 
     };
 
     private final String[] dishNames = {
-            "Paëla","Moules frites","Pizza","Hamburger","Fish and chips","Pâtes à la carbonnara","Fondue vingnerone",
+            "Paëlla","Moules frites","Pizza","Hamburger","Fish and chips","Pâtes à la carbonnara","Fondue vingnerone",
             "Dorade royale","Sushis","Makis","Tempuras","Lasagne","Poke bowl","Raclette","Méchoui","Dinde de Noêlle",
-            "Cordon bleu","Crêpes","Hachis parmentier","Soupe à l'ail","Pissaladière","Fondue Savoyarde","Fondue Bourguignone",
-            "Pâtes bolognaise","Gauffres","Quatre-quarts","Café gourmand","Daube de boeuf carottes","Blanquette de veau",
+            "Cordon bleu","Crêpes","Hachis parmentier","Soupe à l'ail","Pissaladière","Fondue Savoyarde","Fondue Bourguignonne",
+            "Pâtes bolognaise","Gaufres","Quatre-quarts","Café gourmand","Daube de boeuf carottes","Blanquette de veau",
             "Purée de pommes de terre","Blanc de dinde à la moutarde","Rôti de veau","Gratin dauphinois","Pot au feu",
             "Filet mignon de porc"
     };
 
     private final String[] dishNotes = {
-            "dishNoteVide",
             "Oh zut, ça écris ce que je dit. Hihi c'est drôle comment on enlève cette connerie ?",
             "Succulent",
-            "Fantastiquement délicieux"
+            "Fantastiquement délicieux",
+            "Exquis",
+            "Fondant"
     };
 
     public Generator(){
