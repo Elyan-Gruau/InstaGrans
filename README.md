@@ -22,8 +22,8 @@
 - String note
 
 ## Tips
-build service: mvn clean install
-lanch service: java -jar target/grannyService-0.0.1-SNAPSHOT.jar
+-build service: mvn clean install
+-launch service: java -jar target/grannyService-0.0.1-SNAPSHOT.jar
 
 
 
