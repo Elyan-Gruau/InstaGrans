@@ -7,12 +7,13 @@
 - panier + api paypal
 
 ## Grannobject
-- Name
-- age
+- Name (string)
+- age (int)
 - dishes (dishobject)
-- Score
-- desc
-- location
-- price
+- Score (int)
+- desc (string)
+- location (string)
+- price (double)
+- urlProfilePicture (string)
 
 
