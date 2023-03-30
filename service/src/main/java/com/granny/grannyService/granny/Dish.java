@@ -3,6 +3,9 @@ package com.granny.grannyService.granny;
 public class Dish {
     private String name;
     private String prepTime;
+
+
+    private int prepMinute;
     private String note;
     private String urlImage;
 
@@ -40,5 +43,15 @@ public class Dish {
         return urlImage;
     }
 
+    public int getPrepMinute() {
+        return prepMinute;
+    }
 
+    public void setPrepMinute(int prepMinute) {
+        this.prepMinute = prepMinute;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
 }

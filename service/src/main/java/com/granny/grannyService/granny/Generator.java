@@ -9,11 +9,11 @@ public class Generator {
     private Random random;
     private final int minAge = 60;
     private final int maxAge = 103;
-    private final int maxScore = 9;
+    private final int maxScore = 5;
     private final int minPrice = 20;
     private final int maxPrice = 80;
     private final int maxPrepTime = 180;
-    private final int minPrepTime = 5;
+    private final int minPrepTime = 9;
 
     private final String[] names = {"Anita","Brigitte","Bernadette","Claude","Rémonde","Joséphine","Gertrude","Lucette",
             "Jinette","Martine","Nathalie","Françoise","Anne","Marie-France","Marie-Anne","Anne-Marie","Jeanne","Isabelle",
@@ -21,7 +21,7 @@ public class Generator {
             "Paule","Albertine","Capucine","Chistiane","Christine","Catherine","Odile","Michelle","Noëlle","Natalia","Marinette",
             "Claudette", "Paulette","Georgette","Joëlle","Sylvianne","Lilianne","Lucienne","Constance","Cibille","Ginnette",
             "Jeanette","Marie-Pierre","Jinnette","Cunégonde","Rosemonde","Rémonde","Huguette","Josette","Lucette","Josianne",
-            "André","Chantal","Anriette","Rennée","Josie","Rose","Antoinette","Marie-jeanne","Marise","Marie-Lousie","Louise",
+            "André","Chantal","Hanriette","Rennée","Josie","Rose","Antoinette","Marie-Jeanne","Marise","Marie-Lousie","Louise",
             "Danielle","Marceline","Mauricette","Germaine","Giselle","Francine","Francette","Antonella","Jeannine","Ursule,",
             "Ursula","Lina","Leone","Leonnie,","Margot","Bernadette","Juliette","Nadège","Evelyne","Jacqueline","Jacquie"
     };
@@ -123,19 +123,37 @@ public class Generator {
 
     public Granny getNewGranny(){
         Granny granny = new Granny();
-        granny.setName(getRandomName());
-        granny.setAge(getRandomAge());
-        granny.setLocation(getRandomLocation());
-        granny.setDishes(getRandomDishes(3,12));
-        granny.setScore(getRandomScore());
-        granny.setDesc(getRandomDesc());
-        granny.setPrice(getRandomPrice());
+        ArrayList<Dish> dishes = getRandomDishes(3,12);
+        int age = getRandomAge();
+        double avgDishesTime = getAvgDishesTime(dishes);
+        double price = getRandomPrice( avgDishesTime,age);
         granny.setUrlPicture(getRandomUrlPicture());
+        granny.setName(getRandomName());
+        granny.setAge(age);
+        granny.setLocation(getRandomLocation());
+        granny.setDishes(dishes);
+        granny.setPrice(price);
+        granny.setScore(getRandomScore(price));
+        granny.setDesc(getRandomDesc());
         return granny;
     }
 
-    private double getRandomPrice() {
-        return random.nextDouble(maxPrice-minPrice)+minPrice;
+    private double getAvgDishesTime(ArrayList<Dish> dishes) {
+        double avg=0;
+        for (Dish d:dishes){
+            avg += (double) d.getPrepMinute();
+        }
+        return avg/dishes.size();
+    }
+
+
+    private double getRandomPrice(double avg,int age) {
+        Math.sqrt(age);
+        double variateur = 0.5;
+        double i = random.nextDouble(variateur)+variateur;
+        double val = ((avg/(age/2))*9)*i;
+        return val;
+        //return random.nextDouble(maxPrice-minPrice)+minPrice;
     }
 
     private String getRandomDesc() {
@@ -147,8 +165,15 @@ public class Generator {
     }
 
 
-    private double getRandomScore() {
-        return random.nextDouble(maxScore);
+    private double getRandomScore(double price) {
+        //plus le prix est haut, par rapport a la moy, plus le score est bas;
+        double variateur = random.nextDouble(maxScore-3)+0.5 ;
+        double val = ((maxScore/price)*variateur);
+        val =  (val%maxScore)*4;
+        if (val>5){
+            return 5.0;
+        }
+        return val;
     }
 
     private String getRandomLocation() {
@@ -158,7 +183,7 @@ public class Generator {
     public Dish getNewDish(){
         Dish dish = new Dish();
         dish.setName(getRandomDishName());
-        dish.setPrepTime(getRandomPrepTime());
+        dish.setPrepTime(getRandomPrepTime(dish));
         dish.setNote(getRandomNote());
         return dish;
     }
@@ -171,7 +196,7 @@ public class Generator {
         return dishNotes[random.nextInt(dishNotes.length)];
     }
 
-    private String getRandomPrepTime() {
+    private String getRandomPrepTime(Dish dish) {
         int min = minPrepTime;
         int max = maxPrepTime;
         int alea = random.nextInt(101);
@@ -186,6 +211,7 @@ public class Generator {
         }
 
         int minute = random.nextInt(max-min)+min;
+        dish.setPrepMinute(minute);
         int hour = 0;
         while (minute > 60 ){
             minute -=60;
