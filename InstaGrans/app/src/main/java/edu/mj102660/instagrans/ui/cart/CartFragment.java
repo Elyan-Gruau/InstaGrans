@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.ui.discover;
+package edu.mj102660.instagrans.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.mj102660.instagrans.databinding.FragmentDiscoverBinding;
+import edu.mj102660.instagrans.databinding.FragmentCartBinding;
 
-public class DiscoverFragment extends Fragment {
+public class CartFragment extends Fragment {
 
-    private FragmentDiscoverBinding binding;
+    private FragmentCartBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        DiscoverViewModel discoverViewModel = new ViewModelProvider(this).get(DiscoverViewModel.class);
+        CartViewModel cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
-        binding = FragmentDiscoverBinding.inflate(inflater, container, false);
+        binding = FragmentCartBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDiscover;
-        discoverViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textCart;
+        cartViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
