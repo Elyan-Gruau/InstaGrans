@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstaGrans</string>
+    <string name="title_discover">Accueil</string>
+    <string name="title_cart">Panier</string>
+    <string name="title_news">Nouvelles</string>
+    <string name="search_text">Cherchez des Grans</string>
+</resources>

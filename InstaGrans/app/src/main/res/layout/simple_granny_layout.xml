@@ -20,7 +20,7 @@
             android:id="@+id/my_image_view"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@tools:sample/avatars"
+            tools:src="@tools:sample/avatars"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_image" />

@@ -6,18 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.discover.DiscoverFragment">
 
-    <EditText
-        android:id="@+id/search_bar"
+    <LinearLayout
+        android:id="@+id/searching"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="username"
-        android:hint="@string/search_text"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:layout_marginHorizontal="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:hint="@string/search_text"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/courge"
+            android:src="@drawable/magnify"
+            android:contentDescription="@string/search_text" />
+
+    </LinearLayout>
 
 
 <!--        <androidx.constraintlayout.helper.widget.Flow-->
@@ -43,5 +59,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+        app:layout_constraintTop_toBottomOf="@id/searching" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
