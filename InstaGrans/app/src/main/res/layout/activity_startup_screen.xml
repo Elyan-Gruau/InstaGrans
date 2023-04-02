@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/textView"
+        android:theme="@style/textOnCourge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="InstaGrans"
@@ -18,15 +19,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/courgette"
-        android:textColor="@color/white"/>
+        android:fontFamily="@font/courgette"/>
 
     <TextView
         android:id="@+id/textView2"
+        android:theme="@style/textOnCourge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Version 19.44"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

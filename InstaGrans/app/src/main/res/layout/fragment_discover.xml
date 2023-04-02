@@ -29,9 +29,9 @@
             android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/courge"
+            android:contentDescription="@string/search_text"
             android:src="@drawable/magnify"
-            android:contentDescription="@string/search_text" />
+            android:theme="@style/imageButton" />
 
     </LinearLayout>
 
