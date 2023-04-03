@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.grans;
+package edu.mj102660.instagrans.search;
 
 import static edu.mj102660.instagrans.RoundingImage.createRoundedBitmapImageDrawableWithBorder;
 
@@ -12,16 +12,23 @@ import android.widget.ImageView;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 
+import java.util.ArrayList;
+
 import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.R;
+import edu.mj102660.instagrans.grans.Granny;
+import edu.mj102660.instagrans.grans.Grans;
 
-public class GransAdapter extends BaseAdapter {
+public class ResultAdapter extends BaseAdapter {
     private ClickableActivity activity;
     private LayoutInflater inflater;
 
+    ArrayList<Granny> grans;
 
-    public GransAdapter(ClickableActivity activity) {
+
+    public ResultAdapter(ClickableActivity activity, ArrayList<Granny> grans) {
         this.activity = activity;
+        this.grans = grans;
         inflater = LayoutInflater.from(activity.getContext());
     }
 
@@ -41,7 +48,6 @@ public class GransAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View layoutItem;
 
-        //(1) : Réutilisation des layouts
         layoutItem = convertView == null ? inflater.inflate(R.layout.simple_granny_layout, parent, false) : convertView;
 
         ImageView imageProfile = layoutItem.findViewById(R.id.grannyPic);
@@ -53,7 +59,10 @@ public class GransAdapter extends BaseAdapter {
         RoundedBitmapDrawable roundedImageDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userBitmap);
         imageProfile.setImageDrawable(roundedImageDrawable);
 
-        layoutItem.setOnClickListener(click -> activity.onClickGranny(position));
+        layoutItem.setOnClickListener(click -> {
+            int pos = Grans.getInstance().indexOf(grans.get(position));
+            activity.onClickGranny(pos);
+        });
 
         return layoutItem;
     }

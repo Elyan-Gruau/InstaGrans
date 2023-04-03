@@ -5,4 +5,6 @@
     <string name="title_news">News</string>
     <string name="search_text">Search for Grans</string>
 
+
+    <string name="GRANNY" translatable="false">granny</string>
 </resources>

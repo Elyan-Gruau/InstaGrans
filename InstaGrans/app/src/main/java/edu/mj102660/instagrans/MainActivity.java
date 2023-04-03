@@ -11,10 +11,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
+import edu.mj102660.instagrans.search.SearchResultActivity;
 
 public class MainActivity extends AppCompatActivity implements ClickableActivity {
 
@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         searchText = findViewById(R.id.search_bar);
 
         searchButton.setOnClickListener(view -> {
-            intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            intent = new Intent(getApplicationContext(), SearchResultActivity.class);
             startActivity(intent);
         });
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
@@ -51,11 +53,12 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     @Override
     public void onClickGranny(int index) {
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-        //intent.putExtra()
+        intent.putExtra(getString(R.string.GRANNY), index);
+        startActivity(intent);
     }
 
     @Override
     public Context getContext() {
-        return null;
+        return getApplicationContext();
     }
 }
