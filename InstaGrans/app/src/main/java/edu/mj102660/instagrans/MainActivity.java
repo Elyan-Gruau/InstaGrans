@@ -13,6 +13,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.Scanner;
+
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
 import edu.mj102660.instagrans.search.SearchResultActivity;
 
@@ -45,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     }
 
 
+
+
     private void news(){
 
     }
@@ -59,6 +68,26 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         intent.putExtra(getString(R.string.GRANNY), index);
         startActivity(intent);
+    }
+
+    private String getJsonString(String urlQueryString) throws IOException {
+        String json = null;
+        URL url = new URL(urlQueryString);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setInstanceFollowRedirects(false);
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("charset", "utf-8");
+        connection.connect();
+        InputStream inStream = connection.getInputStream();
+        json = streamToString(inStream); // input stream to string
+        return json;
+    }
+
+    private static String streamToString(InputStream inputStream) {
+        String text = new Scanner(inputStream, "UTF-8").useDelimiter("\\Z").next();
+        return text;
     }
 
     @Override
