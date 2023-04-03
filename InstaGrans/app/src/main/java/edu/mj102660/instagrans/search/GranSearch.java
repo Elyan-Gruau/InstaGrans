@@ -12,8 +12,19 @@ public class GranSearch {
         ArrayList<Granny> result = new ArrayList<>();
 
         Grans.getInstance().forEach(granny -> {
-            if (granny.getName().contains(request)) {
-                result.add(granny);
+            if (granny.getName().contains(request) || granny.getLocation().contains(request)) {
+                if(!result.contains(granny)){
+                    result.add(granny);
+                }
+            }
+            else {
+                granny.getDishes().forEach(dish -> {
+                    if(dish.getName().contains(request)){
+                        if(!result.contains(granny)){
+                            result.add(granny);
+                        }
+                    }
+                });
             }
         });
 
