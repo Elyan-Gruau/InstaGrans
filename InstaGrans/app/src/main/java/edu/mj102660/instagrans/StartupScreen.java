@@ -14,18 +14,13 @@ public class StartupScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup_screen);
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.supercell);
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.coc);
         mp.setVolume((float) 1, (float) 1);
         mp.start();
 
         Intent intent = new Intent(this, MainActivity.class);
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(intent);
-            }
-        }, 3000);
+        handler.postDelayed(() -> startActivity(intent), 3000);
     }
 
 }
