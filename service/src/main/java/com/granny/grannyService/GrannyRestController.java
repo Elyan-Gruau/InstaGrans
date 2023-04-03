@@ -16,8 +16,8 @@ import java.util.*;
 
 @RestController
 public class GrannyRestController {
-    Generator generator = new Generator();
-    ArrayList<Granny> grannies =  generator.getNewGrannies(40);//generator.getNewGrannies(40);
+    Generator generator = new Generator(40);
+    ArrayList<Granny> grannies =  generator.getNewGrannies(true);//generator.getNewGrannies(40);
 
 
 

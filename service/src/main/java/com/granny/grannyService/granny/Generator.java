@@ -3,6 +3,7 @@ package com.granny.grannyService.granny;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Generator {
@@ -14,6 +15,8 @@ public class Generator {
     private final int maxPrice = 80;
     private final int maxPrepTime = 180;
     private final int minPrepTime = 9;
+    private ArrayList<Integer> indexes = new ArrayList<>();
+    private int nbGrannies;
 
     private final String[] names = {"Anita","Brigitte","Bernadette","Claude","Rémonde","Joséphine","Gertrude","Lucette",
             "Jinette","Martine","Nathalie","Françoise","Anne","Marie-France","Marie-Anne","Anne-Marie","Jeanne","Isabelle",
@@ -113,8 +116,18 @@ public class Generator {
 
     };
 
-    public Generator(){
+    public Generator(int nb){
+        this.nbGrannies = nb;
         this.random = new Random();
+
+
+        for (int i = 1; i <= nbGrannies; i++){
+            indexes.add(i);
+        }
+        System.out.println("Indexes size:"+indexes.size());
+        Collections.shuffle(indexes);
+
+
     }
 
     private String getRandomName(){
@@ -161,7 +174,7 @@ public class Generator {
     }
 
     private String getRandomUrlPicture() {
-        return "./todo.png";
+        return "granny_"+indexes.remove(0)+".png";
     }
 
 
@@ -245,6 +258,21 @@ public class Generator {
         return random.nextInt(max -min) + min;
     }
 
+    private Granny getNewBorne(){
+        Granny newBorne = new Granny();
+        newBorne.setName("Babette");
+        newBorne.setDishes(getRandomDishes(0,4));
+        newBorne.setScore(4.93);
+        newBorne.setAge(62);
+        newBorne.setLocation(getRandomLocation());
+        double avg = getAvgDishesTime(newBorne.getDishes());
+        newBorne.setPrice(getRandomPrice(avg,newBorne.getAge()));
+        newBorne.setUrlPicture("granny_0.png");
+        newBorne.setDesc("Réformer les retraites, c’est préserver des marges de manœuvre pour agir sur des politiques essentielles.");
+
+        return newBorne;
+    }
+
     private ArrayList<Dish> getRandomDishes(int min, int max) {
         ArrayList<Dish> dishes = new ArrayList<Dish>();
         int dishesNumber = random.nextInt(max -  min)+min;
@@ -257,16 +285,22 @@ public class Generator {
         return dishes;
     }
 
-    public ArrayList<Granny> getNewGrannies(int number){
+    public ArrayList<Granny> getNewGrannies(boolean borne){
         ArrayList<Granny> grannies = new ArrayList<>();
         System.out.println("Generating Grannies...");
-        for(int i = 0; i < number; i++){
+        for(int i = 0; i < nbGrannies-1; i++){
             grannies.add(getNewGranny());
         }
+        if (borne){
+            grannies.add(getNewBorne());
+        }
+
         System.out.println("Done...");
         return grannies;
-
     }
+
+
+
 
 
 }
