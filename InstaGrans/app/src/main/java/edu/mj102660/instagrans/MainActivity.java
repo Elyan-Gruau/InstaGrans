@@ -35,19 +35,38 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
         navView = findViewById(R.id.nav_view);
 
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupWithNavController(binding.navView, navController);
+
+        news();
+        home();
+        cart();
+
+    }
+
+
+    private void news(){
+
+    }
+
+    private void home(){
+
         searchButton = findViewById(R.id.search_button);
         searchText = findViewById(R.id.search_bar);
 
+        String request = searchText.getText().toString();
+
         searchButton.setOnClickListener(view -> {
             intent = new Intent(getApplicationContext(), SearchResultActivity.class);
+            intent.putExtra(getString(R.string.SEARCH), request);
             startActivity(intent);
         });
 
+    }
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+    private void cart(){
+
     }
 
     @Override

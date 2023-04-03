@@ -36,6 +36,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/search_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"

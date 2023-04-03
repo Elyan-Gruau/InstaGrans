@@ -7,4 +7,5 @@
 
 
     <string name="GRANNY" translatable="false">granny</string>
+    <string name="SEARCH" translatable="false">search</string>
 </resources>
