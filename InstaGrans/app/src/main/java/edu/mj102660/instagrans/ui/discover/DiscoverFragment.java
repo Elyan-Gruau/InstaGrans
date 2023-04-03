@@ -16,10 +16,9 @@ public class DiscoverFragment extends Fragment {
 
     private FragmentDiscoverBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        DiscoverViewModel discoverViewModel =
-                new ViewModelProvider(this).get(DiscoverViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        DiscoverViewModel discoverViewModel = new ViewModelProvider(this).get(DiscoverViewModel.class);
 
         binding = FragmentDiscoverBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.ui.Cart;
+package edu.mj102660.instagrans.ui.cart;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

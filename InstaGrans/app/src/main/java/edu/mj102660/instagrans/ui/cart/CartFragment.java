@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.ui.Cart;
+package edu.mj102660.instagrans.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +16,9 @@ public class CartFragment extends Fragment {
 
     private FragmentCartBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        CartViewModel cartViewModel =
-                new ViewModelProvider(this).get(CartViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        
+        CartViewModel cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
 
         binding = FragmentCartBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

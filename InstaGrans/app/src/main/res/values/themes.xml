@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/courge</item>
         <item name="colorPrimaryVariant">@color/courge</item>
-        <item name="colorOnPrimary">@color/courge</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/bleuGranny</item>
         <item name="colorSecondaryVariant">@color/bleuGranny</item>
@@ -12,5 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="textOnCourge">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/courge</item>
+    </style>
+    <style name="imageButton">
+        <item name="android:backgroundTint">@color/courge</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+    <style name="container">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="cocontainer">
+        <item name="android:backgroundTint">@color/lightgrey</item>
     </style>
 </resources>
