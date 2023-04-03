@@ -261,7 +261,7 @@ public class Generator {
     private Granny getNewBorne(){
         Granny newBorne = new Granny();
         newBorne.setName("Babette");
-        newBorne.setDishes(getRandomDishes(0,4));
+        newBorne.setDishes(getRandomDishes(1,4));
         newBorne.setScore(4.93);
         newBorne.setAge(62);
         newBorne.setLocation(getRandomLocation());
