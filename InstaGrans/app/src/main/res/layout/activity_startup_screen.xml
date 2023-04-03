@@ -8,17 +8,29 @@
     android:backgroundTint="#F7B05B"
     tools:context=".StartupScreen">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/imageButton"/>
+
     <TextView
         android:id="@+id/textView"
         android:theme="@style/textOnCourge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="InstaGrans"
+        android:layout_marginTop="10dp"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
         android:fontFamily="@font/courgette"/>
 
     <TextView

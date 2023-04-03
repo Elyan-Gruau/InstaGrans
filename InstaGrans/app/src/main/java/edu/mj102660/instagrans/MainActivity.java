@@ -1,5 +1,6 @@
 package edu.mj102660.instagrans;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ClickableActivity {
 
     private ActivityMainBinding binding;
 
@@ -47,4 +48,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    public void onClickGranny(int index) {
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        //intent.putExtra()
+    }
+
+    @Override
+    public Context getContext() {
+        return null;
+    }
 }

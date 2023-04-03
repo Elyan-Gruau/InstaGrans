@@ -3,5 +3,6 @@
     <string name="title_discover">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_news">News</string>
-    <string name="search_text">Cherchez des Grans</string>
+    <string name="search_text">Search for Grans</string>
+
 </resources>
