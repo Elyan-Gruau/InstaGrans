@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         news();
-        home();
         cart();
 
     }
@@ -50,20 +49,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
     }
 
-    private void home(){
-
-        searchButton = findViewById(R.id.search_button);
-        searchText = findViewById(R.id.search_bar);
-
-        String request = searchText.getText().toString();
-
-        searchButton.setOnClickListener(view -> {
-            intent = new Intent(getApplicationContext(), SearchResultActivity.class);
-            intent.putExtra(getString(R.string.SEARCH), request);
-            startActivity(intent);
-        });
-
-    }
 
     private void cart(){
 

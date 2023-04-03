@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,12 +33,20 @@ public class DiscoverFragment extends Fragment {
         ImageButton searchButton = root.findViewById(R.id.search_button);
         EditText searchText = root.findViewById(R.id.search_bar);
 
-        String request = searchText.getText().toString();
 
         searchButton.setOnClickListener(view -> {
-            Intent intent = new Intent(root.getContext(), SearchResultActivity.class);
-            intent.putExtra(getString(R.string.SEARCH), request);
-            startActivity(intent);
+
+            String request = searchText.getText().toString();
+
+            if(request.equals("")){
+                Toast.makeText(root.getContext(), getString(R.string.search_empty), Toast.LENGTH_LONG).show();
+            }
+            else{
+                Intent intent = new Intent(root.getContext(), SearchResultActivity.class);
+                intent.putExtra(getString(R.string.SEARCH), request);
+                startActivity(intent);
+            }
+
         });
 
         return root;
