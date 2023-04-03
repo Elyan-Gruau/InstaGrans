@@ -202,14 +202,15 @@ public class Generator {
         int alea = random.nextInt(101);
         if (alea>99){
             min=240;
+            max=300;
         }else if (alea>80){
             max=120;
         }else if (alea>50){
             max=90;
         }else {
-            alea =60;
+            max =60;
         }
-
+        //System.out.println("max:"+max+" min:"+min);
         int minute = random.nextInt(max-min)+min;
         dish.setPrepMinute(minute);
         int hour = 0;
@@ -258,10 +259,13 @@ public class Generator {
 
     public ArrayList<Granny> getNewGrannies(int number){
         ArrayList<Granny> grannies = new ArrayList<>();
+        System.out.println("Generating Grannies...");
         for(int i = 0; i < number; i++){
             grannies.add(getNewGranny());
         }
+        System.out.println("Done...");
         return grannies;
+
     }
 
 

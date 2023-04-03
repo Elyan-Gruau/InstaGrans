@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GrannyServiceApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(GrannyServiceApplication.class, args);
 	}
 
