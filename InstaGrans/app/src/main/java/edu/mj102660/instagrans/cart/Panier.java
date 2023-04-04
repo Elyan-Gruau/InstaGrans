@@ -19,4 +19,8 @@ public class Panier {
     public void setGranny(Granny granny) {
         this.granny = granny;
     }
+
+    public Granny getGranny() {
+        return granny;
+    }
 }

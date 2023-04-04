@@ -26,7 +26,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/rounded_image"
-                android:src="@color/bleuGranny" />
+                android:src="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,14 +41,14 @@
                         android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bernadette" />
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/age"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="17ans" />
+                        android:text="" />
 
                 </LinearLayout>
 
@@ -60,7 +60,7 @@
                     android:isIndicator="true"
                     android:numStars="5"
                     android:progressTint="@color/courge"
-                    android:rating="2.5"
+                    android:rating="0"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:secondaryProgressTint="#00FFFFFF"
@@ -102,7 +102,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:padding="8dp"
-                android:text="TextView" />
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
-                android:text="PRICE" />
+                android:text="TVA" />
 
             <TextView
                 android:id="@+id/tva"
@@ -124,7 +124,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:padding="8dp"
-                android:text="TextView" />
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -148,7 +148,7 @@
                 android:gravity="right"
                 android:padding="8dp"
                 android:textStyle="bold"
-                android:text="TextView" />
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
