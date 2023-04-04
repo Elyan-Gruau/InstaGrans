@@ -266,7 +266,7 @@ public class Generator {
         newBorne.setAge(62);
         newBorne.setLocation(getRandomLocation());
         double avg = getAvgDishesTime(newBorne.getDishes());
-        newBorne.setPrice(getRandomPrice(avg,newBorne.getAge()));
+        newBorne.setPrice(49.3);
         newBorne.setUrlPicture("granny_0.png");
         newBorne.setDesc("Réformer les retraites, c’est préserver des marges de manœuvre pour agir sur des politiques essentielles.");
 
