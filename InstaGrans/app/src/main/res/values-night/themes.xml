@@ -25,6 +25,6 @@
         <item name="android:backgroundTint">@color/black</item>
     </style>
     <style name="cocontainer">
-        <item name="android:backgroundTint">@color/darkgrey</item>
+        <item name="android:background">@color/darkgrey</item>
     </style>
 </resources>

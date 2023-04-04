@@ -15,11 +15,12 @@
             android:id="@+id/textNews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ce que vous avez manqué..." />
+            android:text="@string/news_welcome" />
 
         <ListView
             android:id="@+id/listNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

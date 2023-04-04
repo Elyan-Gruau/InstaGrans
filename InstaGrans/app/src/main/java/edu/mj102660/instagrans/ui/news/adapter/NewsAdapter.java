@@ -14,20 +14,22 @@ import android.widget.TextView;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 
+import java.util.ArrayList;
+
+import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.R;
-import edu.mj102660.instagrans.grans.Grans;
-import edu.mj102660.instagrans.ui.news.NewsFragment;
+import edu.mj102660.instagrans.grans.Granny;
 
 public class NewsAdapter extends BaseAdapter {
 
     private NewsList newsList;
-    private NewsFragment context;
+    private ClickableActivity activity;
     private LayoutInflater layoutInflater;
 
-    public NewsAdapter(NewsList newsList, NewsFragment newsFragment) {
-        this.newsList = newsList;
-        this.context = newsFragment;
-        layoutInflater = LayoutInflater.from(newsFragment.getContext());
+    public NewsAdapter(ClickableActivity activity, NewsList news) {
+        this.activity = activity;
+        this.newsList = news;
+        layoutInflater = LayoutInflater.from(activity.getContext());
     }
 
     @Override
@@ -62,7 +64,8 @@ public class NewsAdapter extends BaseAdapter {
         ImageView imageProfile = layoutItem.findViewById(R.id.grannyPic);
 
         String resName = (news.getGranny().getUrlPicture());
-        int resID =  context.getContext().getResources().getIdentifier(resName, "drawable", context.getContext().getPackageName());
+        resName = resName.replace(".png", "");
+        int resID =  activity.getContext().getResources().getIdentifier(resName, "drawable", activity.getContext().getPackageName());
 
         Bitmap userBitmap = BitmapFactory.decodeResource(layoutItem.getResources(),resID);
         RoundedBitmapDrawable roundedImageDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userBitmap);
@@ -71,7 +74,6 @@ public class NewsAdapter extends BaseAdapter {
         // Granny Name
         TextView grannyName = layoutItem.findViewById(R.id.grannyName);
         grannyName.setText(news.getGranny().getName());
-        grannyName.setTextColor(context.getResources().getColor(R.color.courge));
 
         // Granny News
         TextView grannyNews = layoutItem.findViewById(R.id.achievementText);
@@ -79,8 +81,9 @@ public class NewsAdapter extends BaseAdapter {
 
         // Dish Pic
         ImageView imageDish = layoutItem.findViewById(R.id.newsPic);
-        String dishName = (news.getGranny().getUrlPicture());
-        int dishID =  context.getContext().getResources().getIdentifier(dishName, "drawable", context.getContext().getPackageName());
+        String dishName = (news.getImage());
+        dishName = dishName.replace(".png", "");
+        int dishID =  activity.getContext().getResources().getIdentifier(dishName, "drawable", activity.getContext().getPackageName());
         imageDish.setImageResource(dishID);
 
         return layoutItem;
