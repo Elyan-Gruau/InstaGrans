@@ -10,4 +10,5 @@
 
     <string name="GRANNY" translatable="false">granny</string>
     <string name="SEARCH" translatable="false">search</string>
+    <string name="news_sentence_0">a appris à faire</string>
 </resources>

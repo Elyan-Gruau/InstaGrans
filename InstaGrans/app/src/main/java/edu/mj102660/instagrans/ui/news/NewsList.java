@@ -1,8 +1,13 @@
 package edu.mj102660.instagrans.ui.news;
 
+import java.util.ArrayList;
+
 import edu.mj102660.instagrans.grans.Granny;
 
-public class NewsList {
+public class NewsList extends ArrayList<News> {
+    public NewsList() {
+        // Foreach des grannies
+    }
 }
 
 class News {
