@@ -25,15 +25,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.zip.GZIPInputStream;
 
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
 import edu.mj102660.instagrans.grans.Granny;
+import edu.mj102660.instagrans.grans.dish.Dish;
 import edu.mj102660.instagrans.network.HttpHandler;
 import edu.mj102660.instagrans.search.SearchResultActivity;
 
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
+    private final String hostIp = "172.19.20.39"; //todo à changer
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
@@ -108,8 +112,8 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
      * Tache asynchrone
      */
     public class GetGrannies extends AsyncTask<Void,Void,Void> {
-        ArrayList<Granny> grannies;
-        ArrayList<String> maListe;
+        ArrayList<Granny> granniesL = new ArrayList<>();
+        ArrayList<String> maListe = new ArrayList<>();
 
         @Override
         protected void onPreExecute() {
@@ -117,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Connexion en cours...");
             pDialog.setCancelable(false);
-            pDialog.show();
+            //pDialog.show();
 
         }
 
@@ -132,15 +136,20 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             }
             HttpHandler handler = new HttpHandler();
 
-
-            String jsonStr = handler.makeServiceCall("http://192.168.0.35:8080/getGrannies");
+            try {
+                System.out.println(InetAddress.getLocalHost());
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            }
+            //192.168.0.35
+            String jsonStr = handler.makeServiceCall("http://"+hostIp+":8080/getGrannies");
 
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     //Récupérer l'array
-                    JSONArray grannyList = jsonObj.getJSONArray("");
+                    JSONArray grannyList = jsonObj.getJSONArray("grannies");
 
                     // pour chaque element de l'array
                     for (int i = 0; i < grannyList.length(); i++) {
@@ -151,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                         String location = c.getString("location");
                         String desc = c.getString("desc");
                         String urlPicture = c.getString("urlPicture");
-                        double score = c.getDouble("price");
+                        double score = c.getDouble("score");
                         double price = c.getDouble("price");
 
 
@@ -162,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
 
                         Granny granny = new Granny();
+                        //System.out.println("NAME: "+name);
                         granny.setName(name);
                         granny.setAge(age);
                         granny.setLocation(location);
@@ -170,8 +180,22 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                         granny.setPrice(price);
                         granny.setUrlPicture(urlPicture);
 
-                        grannies.add(granny);
+                        JSONArray dishesArray = c.getJSONArray("dishes");
+                        for (int j =0; j<dishesArray.length();j++){
+                            JSONObject d = dishesArray.getJSONObject(j);
+                            Dish dish = new Dish();
+                            dish.setName(d.getString("name"));
+                            //System.out.println("name  "+d.getString("name"));
+                            dish.setNote(d.getString("note"));
+                            dish.setUrlImage(d.getString("urlImage"));
+                            dish.setPrepTime(d.getString("prepTime"));
+                            dish.setPrepMinute(d.getInt("prepMinute"));
+                            granny.addDish(dish);
+                        }
+
+                        granniesL.add(granny);
                     }
+                    System.out.println("Grannies Fetched.");
 
                 } catch (final JSONException e) {
                     System.out.println("Erreur JSON " + e.getMessage());
@@ -182,6 +206,24 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             }
 
             return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            if (pDialog.isShowing())
+                pDialog.dismiss();
+            ArrayList<String> list = new ArrayList<String>();
+            for(int i=0;i<grannies.size();i++)
+                list.add(grannies.get(i).toString());
+
+
+            // UTILER UN ADAPTER PLUS JOLI!!!
+            //ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1, list);
+
+            //lv.setAdapter(adapter);
         }
 
     }
