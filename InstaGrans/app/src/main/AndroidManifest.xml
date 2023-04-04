@@ -11,6 +11,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_color"
+        android:icon="@drawable/logo_color"
         android:supportsRtl="true"
         android:theme="@style/Theme.InstaGrans"
         android:usesCleartextTraffic="true"

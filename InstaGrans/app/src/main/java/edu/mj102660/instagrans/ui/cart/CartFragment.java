@@ -4,6 +4,7 @@ import static edu.mj102660.instagrans.RoundingImage.createRoundedBitmapImageDraw
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -25,6 +26,7 @@ import org.w3c.dom.Text;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import edu.mj102660.instagrans.MainActivity;
 import edu.mj102660.instagrans.NotificationBuilder;
 import edu.mj102660.instagrans.R;
 import edu.mj102660.instagrans.cart.Panier;
@@ -81,14 +83,20 @@ public class CartFragment extends Fragment {
                 manager.createNotificationChannel(channel);
             }
 
+            Intent intent = new Intent(root.getContext(), MainActivity.class);
+
             Button checkout = binding.buttonCheckout;
             checkout.setOnClickListener(view -> {
                 notificationBuilder.buildNotification(getString(R.string.order), panier.getGranny().getName() + getString(R.string.ontw));
+                Panier.getInstance().setGranny(null);
+                startActivity(intent);
             });
 
             Button paypal = binding.buttonPaypal;
             paypal.setOnClickListener(view -> {
                 notificationBuilder.buildNotification(getString(R.string.paypal_order), panier.getGranny().getName() + getString(R.string.ontw));
+                Panier.getInstance().setGranny(null);
+                startActivity(intent);
             });
         }
         return root;
