@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
 
-    NotificationBuilder notificationBuilder = new NotificationBuilder(this);
 
 
 
@@ -72,8 +71,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             throw new RuntimeException(e);
         }
 
-        // Lancement de la notification
-        notificationBuilder.buildNotification();
+
 
 
     }

@@ -21,7 +21,9 @@ public class CartFragment extends Fragment {
         binding = FragmentCartBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCart;
+        //final TextView textView = binding.textCart;
+
+
 
         return root;
     }
