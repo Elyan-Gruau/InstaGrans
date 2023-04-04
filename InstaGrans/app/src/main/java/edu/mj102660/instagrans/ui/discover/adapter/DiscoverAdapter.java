@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
@@ -50,21 +51,24 @@ public class DiscoverAdapter extends BaseAdapter {
         ImageView dishImage = layoutItem.findViewById(R.id.dishPic);
         TextView ageText = layoutItem.findViewById(R.id.age);
         TextView nameText = layoutItem.findViewById(R.id.name);
+        RatingBar rating = layoutItem.findViewById(R.id.rating_simple);
 
         //Profile Picture
         String resName = (Grans.getInstance().get(position).getUrlPicture());
         resName = resName.replace(".png", "");
+        System.out.println("Displaying"+resName);
         int resID =  parent.getResources().getIdentifier(resName, "drawable", activity.getContext().getPackageName());
         Bitmap userBitmap = BitmapFactory.decodeResource(layoutItem.getResources(),resID);
         RoundedBitmapDrawable roundedImageDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userBitmap);
         imageProfile.setImageDrawable(roundedImageDrawable);
 
         //Dish Picture
+        //Dish Picture
         String resDishName = (Grans.getInstance().get(position).getDishes().get(0).getUrlImage());
         resDishName = resDishName.replace(".png", "");
         int resDishID =  parent.getResources().getIdentifier(resDishName, "drawable", activity.getContext().getPackageName());
-        Bitmap userDishBitmap = BitmapFactory.decodeResource(layoutItem.getResources(),resDishID);
-        RoundedBitmapDrawable roundedImageDishDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userDishBitmap);
+        //Bitmap userDishBitmap = BitmapFactory.decodeResource(layoutItem.getResources(),resDishID);
+        //RoundedBitmapDrawable roundedImageDishDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userDishBitmap);
         dishImage.setImageResource(resDishID);
 
         layoutItem.setOnClickListener(click -> activity.onClickGranny(position));
@@ -72,6 +76,7 @@ public class DiscoverAdapter extends BaseAdapter {
 
         ageText.setText(String.valueOf(Grans.getInstance().get(position).getAge()));
         nameText.setText(String.valueOf(Grans.getInstance().get(position).getName()));
+        rating.setRating((float) Grans.getInstance().get(position).getScore());
 
         return layoutItem;
     }
