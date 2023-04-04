@@ -20,16 +20,23 @@ import edu.mj102660.instagrans.grans.Granny;
 public class SearchResultActivity extends AppCompatActivity implements ClickableActivity {
 
     ImageButton backButton;
-    Intent intent = new Intent();
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
+
+        intent = getIntent();
+
         String request = intent.getStringExtra(getString(R.string.SEARCH));
 
+        System.out.println(request);
+
         ArrayList<Granny> grans = GranSearch.requestResult(request);
+
+        grans.forEach(granny -> System.out.println(granny.getName() + " " + granny.getLocation()));
 
         ResultAdapter adapter = new ResultAdapter(this, grans);
 

@@ -12,6 +12,7 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 public class RoundingImage {
 
     public static RoundedBitmapDrawable createRoundedBitmapImageDrawableWithBorder(View layout, Bitmap bitmap){
+
         int bitmapWidthImage = bitmap.getWidth();
         int bitmapHeightImage = bitmap.getHeight();
         int borderWidthHalfImage = 4;

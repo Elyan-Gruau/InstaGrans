@@ -7,4 +7,5 @@
     <string name="search_text">Cherchez des Grans</string>
     <string name="search_empty">Vous devez cherchez quelque chose</string>
     <string name="news_sentence_0">"a appris à faire "</string>
+    <string name="yearsold">ans</string>
 </resources>
