@@ -12,7 +12,7 @@ public class GranSearch {
         ArrayList<Granny> result = new ArrayList<>();
 
         Grans.getInstance().forEach(granny -> {
-            if (granny.getName().contains(request) || granny.getLocation().contains(request)) {
+            if (granny.getName().toLowerCase().contains(request.toLowerCase()) || granny.getLocation().toLowerCase().contains(request)) {
                 if(!result.contains(granny)){
                     result.add(granny);
                 }
