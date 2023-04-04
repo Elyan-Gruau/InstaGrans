@@ -24,8 +24,10 @@ import java.util.Locale;
 import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.MainActivity;
 import edu.mj102660.instagrans.R;
+import edu.mj102660.instagrans.cart.Panier;
 import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
+import edu.mj102660.instagrans.ui.cart.CartFragment;
 
 public class ProfileActivity extends AppCompatActivity implements ClickableActivity {
 
@@ -83,6 +85,14 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
         button.setText(getString(R.string.rent) + granny.getName() + currencyFormatter.format(granny.getPrice()));
+
+        button.setOnClickListener(view -> {
+            Panier panier = Panier.getInstance();
+            panier.setGranny(granny);
+
+            Intent intent = new Intent(getApplicationContext(), CartFragment.class);
+            startActivity(intent);
+        });
 
         GridView image_grid = findViewById(R.id.image_grid);
 
