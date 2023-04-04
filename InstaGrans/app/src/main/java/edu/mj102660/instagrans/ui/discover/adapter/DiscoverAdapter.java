@@ -47,22 +47,24 @@ public class DiscoverAdapter extends BaseAdapter {
         //(1) : Réutilisation des layouts
         layoutItem = convertView == null ? inflater.inflate(R.layout.discover_granny_layout, parent, false) : convertView;
 
+
+        //Récupération des widgets
         ImageView imageProfile = layoutItem.findViewById(R.id.grannyPic);
         ImageView dishImage = layoutItem.findViewById(R.id.dishPic);
         TextView ageText = layoutItem.findViewById(R.id.age);
         TextView nameText = layoutItem.findViewById(R.id.name);
         RatingBar rating = layoutItem.findViewById(R.id.rating_simple);
+        TextView locationText = layoutItem.findViewById(R.id.location);
 
         //Profile Picture
         String resName = (Grans.getInstance().get(position).getUrlPicture());
         resName = resName.replace(".png", "");
-        System.out.println("Displaying"+resName);
+        //System.out.println("Displaying"+resName);
         int resID =  parent.getResources().getIdentifier(resName, "drawable", activity.getContext().getPackageName());
         Bitmap userBitmap = BitmapFactory.decodeResource(layoutItem.getResources(),resID);
         RoundedBitmapDrawable roundedImageDrawable = createRoundedBitmapImageDrawableWithBorder(layoutItem, userBitmap);
         imageProfile.setImageDrawable(roundedImageDrawable);
 
-        //Dish Picture
         //Dish Picture
         String resDishName = (Grans.getInstance().get(position).getDishes().get(0).getUrlImage());
         resDishName = resDishName.replace(".png", "");
@@ -73,10 +75,11 @@ public class DiscoverAdapter extends BaseAdapter {
 
         layoutItem.setOnClickListener(click -> activity.onClickGranny(position));
 
-
+        //Application des changements.
         ageText.setText(String.valueOf(Grans.getInstance().get(position).getAge()));
         nameText.setText(String.valueOf(Grans.getInstance().get(position).getName()));
         rating.setRating((float) Grans.getInstance().get(position).getScore());
+        locationText.setText(Grans.getInstance().get(position).getLocation());
 
         return layoutItem;
     }
