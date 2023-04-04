@@ -85,7 +85,7 @@ public class Generator {
     };
 
     private final String[] dishNames = {
-            "Paëlla","Moules frites","Pizza","Hamburger","Fish and chips","Pâtes à la carbonnara","Fondue vingnerone",
+            "Paëlla","Moules frites","Pizza","Hamburger","Fish and chips","Pâtes à la carbonnara","Fondue vigneronne",
             "Dorade royale","Sushis","Makis","Tempuras","Lasagne","Poke bowl","Raclette","Méchoui","Dinde de Noêlle",
             "Cordon bleu","Crêpes","Hachis parmentier","Soupe à l'ail","Pissaladière","Fondue Savoyarde","Fondue Bourguignonne",
             "Pâtes bolognaise","Gaufres","Quatre-quarts","Café gourmand","Daube de boeuf carottes","Blanquette de veau",
