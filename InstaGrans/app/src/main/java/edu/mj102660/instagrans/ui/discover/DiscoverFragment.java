@@ -27,6 +27,7 @@ import edu.mj102660.instagrans.NotificationBuilder;
 import edu.mj102660.instagrans.databinding.FragmentDiscoverBinding;
 import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
+import edu.mj102660.instagrans.profile.ProfileActivity;
 import edu.mj102660.instagrans.search.GranSearch;
 import edu.mj102660.instagrans.search.ResultAdapter;
 import edu.mj102660.instagrans.search.SearchResultActivity;
@@ -80,6 +81,9 @@ public class DiscoverFragment extends Fragment implements ClickableActivity {
 
     @Override
     public void onClickGranny(int index) {
+        Intent intent = new Intent(binding.getRoot().getContext(), ProfileActivity.class);
+        intent.putExtra(getString(R.string.GRANNY), index);
+        startActivity(intent);
 
     }
 }

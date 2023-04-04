@@ -5,7 +5,7 @@
     <string name="title_news">News</string>
     <string name="search_text">Search for Grans</string>
     <string name="yearsold">y/o</string>
-    <string name="news_sentence_0">learned to make </string>
+    <string name="news_sentence_0">"learned to make "</string>
     <string name="news_welcome">You might have missed</string>
 
     <string name="rent">Rent </string>
