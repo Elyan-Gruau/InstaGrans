@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,12 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
         //String json = getJsonString("http://localhost:8080/getGrannies");
         new GetGrannies().execute();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("GranniesLengh "+grannies.size());
 
 
     }
@@ -193,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                             granny.addDish(dish);
                         }
 
-                        granniesL.add(granny);
+                        grannies.add(granny);
                     }
                     System.out.println("Grannies Fetched.");
 
