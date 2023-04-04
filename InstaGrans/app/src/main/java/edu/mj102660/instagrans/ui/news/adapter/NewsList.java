@@ -3,10 +3,16 @@ package edu.mj102660.instagrans.ui.news.adapter;
 import java.util.ArrayList;
 
 import edu.mj102660.instagrans.grans.Granny;
+import edu.mj102660.instagrans.grans.Grans;
 
 public class NewsList extends ArrayList<News> {
     public NewsList() {
-        // Foreach des grannies
+        Grans grans = Grans.getInstance();
+        for (Granny granny : grans) {
+            News news = new News(granny);
+            news.generateNews();
+            add(news);
+        }
     }
 }
 
@@ -19,7 +25,7 @@ class News {
         this.granny = granny;
     }
 
-    private void generateNews() {
+    void generateNews() {
         // Cas de base (test)
         news = " a appris à faire " + granny.getDishes().get(0).getName();
         image = granny.getDishes().get(0).getUrlImage();
