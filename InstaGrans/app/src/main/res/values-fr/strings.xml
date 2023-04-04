@@ -8,5 +8,6 @@
     <string name="search_empty">Vous devez cherchez quelque chose</string>
     <string name="news_sentence_0">"a appris à faire "</string>
     <string name="yearsold">ans</string>
-    <string name="news_welcome">Ce que vous avez manqué</string>
+    <string name="news_welcome">Vous avez peut être manqué</string>
+    <string name="rent">Louer</string>
 </resources>

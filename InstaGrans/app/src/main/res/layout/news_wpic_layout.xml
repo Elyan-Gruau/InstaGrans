@@ -32,23 +32,32 @@
                 android:layout_weight="1"
                 tools:srcCompat="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/grannyName"
-                android:layout_width="56dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ginette"
-                android:textAlignment="center"
-                android:textColor="@color/courge"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/achievementText"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="a appris à faire de la Paëlla"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:layout_weight="5">
+
+                <TextView
+                    android:id="@+id/grannyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Ginette"
+                    android:textAlignment="center"
+                    android:textColor="@color/courge"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/achievementText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="a appris à faire de la Paëlla"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <ImageView

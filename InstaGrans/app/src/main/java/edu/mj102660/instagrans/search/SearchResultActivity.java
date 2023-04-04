@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.MainActivity;
-import edu.mj102660.instagrans.ProfileActivity;
+import edu.mj102660.instagrans.profile.ProfileActivity;
 import edu.mj102660.instagrans.R;
 import edu.mj102660.instagrans.grans.Granny;
 
@@ -53,10 +53,13 @@ public class SearchResultActivity extends AppCompatActivity implements Clickable
         });
     }
 
+
+
     @Override
     public void onClickGranny(int index) {
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         intent.putExtra(getString(R.string.GRANNY), index);
+        startActivity(intent);
     }
 
     @Override

@@ -20,26 +20,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.InetAddress;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.zip.GZIPInputStream;
 
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
 import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
 import edu.mj102660.instagrans.grans.dish.Dish;
 import edu.mj102660.instagrans.network.HttpHandler;
-import edu.mj102660.instagrans.search.SearchResultActivity;
+import edu.mj102660.instagrans.profile.ProfileActivity;
 
 public class MainActivity extends AppCompatActivity implements ClickableActivity {
 
@@ -50,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
-    private final String hostIp = "10.20.102.245"; //todo à changer
+    private final String hostIp = "172.19.20.130"; //todo à changer
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
@@ -89,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
     @Override
     public void onClickGranny(int index) {
-
 
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         intent.putExtra(getString(R.string.GRANNY), index);
