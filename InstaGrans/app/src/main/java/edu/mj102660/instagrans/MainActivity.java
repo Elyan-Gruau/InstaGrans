@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
-    private final String hostIp = "10.20.102.245"; //todo à changer
+    private final String hostIp = "172.19.20.130";
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
@@ -194,9 +194,9 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
             if (pDialog.isShowing())
                 pDialog.dismiss();
-            ArrayList<String> list = new ArrayList<String>();
-            for(int i=0;i<grannies.size();i++)
-                list.add(grannies.get(i).toString());
+            ArrayList<String> list = new ArrayList<>();
+            for(int i=0;i<Grans.getInstance().size();i++)
+                list.add(Grans.getInstance().get(i).toString());
 
 
             // UTILER UN ADAPTER PLUS JOLI!!!

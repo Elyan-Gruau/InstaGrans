@@ -9,15 +9,15 @@ import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
 
 public class NewsList extends ArrayList<News> {
+
+
     public NewsList(View layout) {
+
         for (Granny granny : Grans.getInstance()) {
             News news = new News(granny);
             news.generateNews(layout);
             add(news);
         }
-        System.out.println("NewsList: " + size() + " news generated");
-        System.out.println("NewsList (0): " + get(0).getNews());
-        System.out.println("NewsList (24): " + get(24).getNews());
     }
 }
 

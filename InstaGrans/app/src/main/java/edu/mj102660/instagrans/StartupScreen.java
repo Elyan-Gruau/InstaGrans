@@ -37,6 +37,7 @@ public class StartupScreen extends AppCompatActivity {
         text.setVisibility(View.VISIBLE);
 
 
+
         Intent intent = new Intent(this, MainActivity.class);
         Handler handler = new Handler();
         handler.postDelayed(() -> startActivity(intent), 3000);
