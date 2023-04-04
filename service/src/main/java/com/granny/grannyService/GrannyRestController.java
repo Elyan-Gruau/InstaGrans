@@ -1,6 +1,7 @@
 package com.granny.grannyService;
 
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.granny.grannyService.granny.Generator;
 import com.granny.grannyService.granny.Granny;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Mono;
-;
+import org.json.simple.JSONObject;
 import java.security.SecureRandom;
 import java.util.*;
 
@@ -25,8 +26,11 @@ public class GrannyRestController {
 
 
     @GetMapping("/getGrannies")
-    public ArrayList<Granny> getGrannies() {
-        return this.grannies;
+    public JSONObject getGrannies() {
+        List<Granny> grannies = this.grannies;
+        JSONObject output = new JSONObject();
+        output.put("grannies", grannies);
+        return output;
     }
 
     @GetMapping("/areGranniesReady")
