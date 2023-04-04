@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import edu.mj102660.instagrans.databinding.FragmentNewsBinding;
+import edu.mj102660.instagrans.ui.news.adapter.NewsAdapter;
 import edu.mj102660.instagrans.ui.news.adapter.NewsList;
 
 public class NewsFragment extends Fragment {
@@ -31,7 +32,8 @@ public class NewsFragment extends Fragment {
         ListView listView = binding.listNews;
         NewsList newsList = new NewsList();
 
-
+        NewsAdapter newsAdapter = new NewsAdapter(newsList, this);
+        listView.setAdapter(newsAdapter);
 
         return root;
     }
