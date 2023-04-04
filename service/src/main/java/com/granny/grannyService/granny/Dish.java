@@ -80,6 +80,7 @@ public class Dish {
 
         s= s.replaceAll(" ","_");
         s= s.replaceAll("'","_");
+        s= s.replaceAll("-","_");
         return s;
     }
 }
