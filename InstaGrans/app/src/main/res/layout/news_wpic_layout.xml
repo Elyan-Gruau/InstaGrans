@@ -76,7 +76,7 @@
             android:id="@+id/likeIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            tools:src="@drawable/like"
+            android:src="@drawable/like"
             />
 
         <TextView
@@ -94,7 +94,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            tools:src="@drawable/views" />
+            android:src="@drawable/views" />
 
         <TextView
             android:id="@+id/nbViews"
@@ -109,6 +109,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="60dp"
-            tools:src="@drawable/human_walker"/>
+            android:src="@drawable/human_walker"/>
     </LinearLayout>
 </LinearLayout>
