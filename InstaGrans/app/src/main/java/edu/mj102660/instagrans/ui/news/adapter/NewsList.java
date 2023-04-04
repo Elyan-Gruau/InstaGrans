@@ -1,4 +1,4 @@
-package edu.mj102660.instagrans.ui.news;
+package edu.mj102660.instagrans.ui.news.adapter;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,19 @@ class News {
 
     private void generateNews() {
         // Cas de base (test)
-        news = granny.getName() + " a appris à faire " + granny.getDishes().get(0).getName();
+        news = " a appris à faire " + granny.getDishes().get(0).getName();
         image = granny.getDishes().get(0).getUrlImage();
+    }
+
+    public String getNews() {
+        return news;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public Granny getGranny() {
+        return granny;
     }
 }
