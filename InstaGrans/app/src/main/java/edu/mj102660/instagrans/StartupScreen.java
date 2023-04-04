@@ -30,8 +30,7 @@ import android.os.AsyncTask;
 
 public class StartupScreen extends AppCompatActivity {
 
-    //todo Il faut impérativement renseigner l'ip du webservice ici
-    private final String hostIp = "192.168.0.35";
+    private final String hostIp = WebServiceConnexion.getIP();
     ProgressDialog pDialog ;
 
     @Override
