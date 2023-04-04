@@ -25,6 +25,7 @@ import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
 import edu.mj102660.instagrans.grans.dish.Dish;
 import edu.mj102660.instagrans.network.HttpHandler;
+import edu.mj102660.instagrans.network.WebServiceConnexion;
 
 import android.os.AsyncTask;
 

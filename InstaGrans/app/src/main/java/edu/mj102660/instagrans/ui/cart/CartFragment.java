@@ -22,6 +22,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.w3c.dom.Text;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import edu.mj102660.instagrans.NotificationBuilder;
 import edu.mj102660.instagrans.R;
 import edu.mj102660.instagrans.cart.Panier;
@@ -56,14 +59,18 @@ public class CartFragment extends Fragment {
             granny_pic.setImageDrawable(roundedImageDrawable);
 
             binding.ratingSimple.setRating((float) panier.getGranny().getScore());
-            binding.price.setText(String.valueOf(panier.getGranny().getPrice()) + " €");
+
+            Locale locale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
+            NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+
+            binding.price.setText(currencyFormatter.format(panier.getGranny().getPrice()));
 
             Double price = panier.getGranny().getPrice();
             Double TVA = 0.2;
             Double priceTVA = price + price*TVA;
 
-            binding.tva.setText(String.valueOf(TVA*100)+ " %");
-            binding.priceTTC.setText(String.valueOf(priceTVA)+ " €");
+            binding.tva.setText(TVA * 100 + " %");
+            binding.priceTTC.setText(currencyFormatter.format(priceTVA));
 
             // Lancement de la notification
             NotificationBuilder notificationBuilder = new NotificationBuilder(this.getActivity());

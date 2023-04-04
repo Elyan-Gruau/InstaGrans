@@ -12,11 +12,16 @@
 
     <string name="order">Pending order</string>
     <string name="paypal_order">PAYPAL pending order</string>
-    <string name="ontw">is on the way!</string>
+    <string name="ontw">" is on the way!"</string>
 
     <string name="search_empty">You must search for something</string>
 
     <string name="GRANNY" translatable="false">granny</string>
     <string name="SEARCH" translatable="false">search</string>
+    <string name="checkout">Checkout</string>
+    <string name="price_ttc">PRICE ATI</string>
+    <string name="price">PRICE</string>
+    <string name="tva">VAT</string>
+    <string name="added_to_cart">Granny added to cart</string>
 
 </resources>

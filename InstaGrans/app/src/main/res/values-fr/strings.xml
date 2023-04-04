@@ -12,5 +12,10 @@
     <string name="rent">Louer</string>
     <string name="order">Commande en cours</string>
     <string name="paypal_order">Commande PAYPAL en cours</string>
-    <string name="ontw">est en route !</string>
+    <string name="ontw">" est en route !"</string>
+    <string name="checkout">Payement</string>
+    <string name="price_ttc">PRIX TTC</string>
+    <string name="price">PRIX</string>
+    <string name="tva">TVA</string>
+    <string name="added_to_cart">Granny ajoutée au panier</string>
 </resources>

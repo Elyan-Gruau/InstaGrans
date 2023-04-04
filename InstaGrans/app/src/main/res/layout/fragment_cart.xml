@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
-                android:text="PRICE" />
+                android:text="@string/price" />
 
             <TextView
                 android:id="@+id/price"
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
-                android:text="TVA" />
+                android:text="@string/tva" />
 
             <TextView
                 android:id="@+id/tva"
@@ -138,7 +138,7 @@
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:textStyle="bold"
-                android:text="PRICE TTC" />
+                android:text="@string/price_ttc" />
 
             <TextView
                 android:id="@+id/priceTTC"
@@ -162,7 +162,7 @@
                 android:id="@+id/buttonCheckout"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Checkout"
+                android:text="@string/checkout"
                 app:cornerRadius="20dp" />
 
             <Button

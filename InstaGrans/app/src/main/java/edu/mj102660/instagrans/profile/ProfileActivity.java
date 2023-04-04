@@ -91,13 +91,11 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
         button.setText(getString(R.string.rent) + " " + granny.getName() + " " + currencyFormatter.format(granny.getPrice()) + " / h");
         ProfileDishesAdapter adapter = new ProfileDishesAdapter(this, granny.getDishes());
 
-        System.out.println(granny.getDishes().size());
-
         button.setOnClickListener(view -> {
             Panier panier = Panier.getInstance();
             panier.setGranny(granny);
 
-            Toast toast = Toast.makeText(this, "Granny ajoutée au panier", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, getString(R.string.added_to_cart), Toast.LENGTH_SHORT);
             toast.show();
         });
 
