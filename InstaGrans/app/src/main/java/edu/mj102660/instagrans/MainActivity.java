@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
-    private final String hostIp = "10.20.102.245"; //todo à changer
+
+    //todo Il faut impérativement renseigner l'ip du webservice ici
+    private final String hostIp = "192.168.0.35";
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
-        //String json = getJsonString("http://localhost:8080/getGrannies");
+        //Fetch les données du JSon
         new GetGrannies().execute();
         try {
             Thread.sleep(1000);
@@ -88,11 +90,9 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
 
 
     /**
-     * Tache asynchrone
+     * Tache asynchrone pour fetch
      */
     public class GetGrannies extends AsyncTask<Void,Void,Void> {
-        ArrayList<Granny> granniesL = new ArrayList<>();
-        ArrayList<String> maListe = new ArrayList<>();
 
         @Override
         protected void onPreExecute() {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             pDialog = new ProgressDialog(MainActivity.this);
             pDialog.setMessage("Connexion en cours...");
             pDialog.setCancelable(false);
-            //pDialog.show();
+            pDialog.show();
 
         }
 
@@ -134,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                     for (int i = 0; i < grannyList.length(); i++) {
                         JSONObject c = grannyList.getJSONObject(i);
 
+
+                        //Récupération des attributs
                         String name= c.getString("name");
                         int age = c.getInt("age");
                         String location = c.getString("location");
@@ -142,15 +144,8 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                         double score = c.getDouble("score");
                         double price = c.getDouble("price");
 
-
-                        // récupération  geometry objet
-                        //JSONObject geometry = c.getJSONObject("granny");
-
-                        //String geo = geometry.getString("coordinates");
-
-
+                        //On créer l'objet, on applique tout les attributs
                         Granny granny = new Granny();
-                        //System.out.println("NAME: "+name);
                         granny.setName(name);
                         granny.setAge(age);
                         granny.setLocation(location);
@@ -159,8 +154,12 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                         granny.setPrice(price);
                         granny.setUrlPicture(urlPicture);
 
+
+                        //Récupération de l'array
                         JSONArray dishesArray = c.getJSONArray("dishes");
                         for (int j =0; j<dishesArray.length();j++){
+
+                            //Récupération de l'objet Dish
                             JSONObject d = dishesArray.getJSONObject(j);
                             Dish dish = new Dish();
                             dish.setName(d.getString("name"));
@@ -172,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                             granny.addDish(dish);
                         }
 
+                        //Ajout de la granny au SINGLETON
                         Grans.getInstance().add(granny);
                     }
                     System.out.println("Grannies Fetched.");
@@ -197,12 +197,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             ArrayList<String> list = new ArrayList<String>();
             for(int i=0;i<grannies.size();i++)
                 list.add(grannies.get(i).toString());
-
-
-            // UTILER UN ADAPTER PLUS JOLI!!!
-            //ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1, list);
-
-            //lv.setAdapter(adapter);
         }
 
     }
