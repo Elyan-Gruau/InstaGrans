@@ -20,6 +20,8 @@ public class NewsFragment extends Fragment implements ClickableActivity {
 
     private FragmentNewsBinding binding;
 
+    NewsList newsList;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
@@ -27,7 +29,7 @@ public class NewsFragment extends Fragment implements ClickableActivity {
         View root = binding.getRoot();
 
         ListView listView = binding.listNews;
-        NewsList newsList = new NewsList(root);
+        newsList = new NewsList(root);
 
         NewsAdapter newsAdapter = new NewsAdapter(this, newsList);
         listView.setAdapter(newsAdapter);
@@ -39,6 +41,7 @@ public class NewsFragment extends Fragment implements ClickableActivity {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        newsList = null;
     }
 
     @Override
