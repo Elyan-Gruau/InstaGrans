@@ -5,21 +5,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@drawable/layout_round_edges20dp_grey">
+    android:background="@drawable/layout_round_edges20dp_grey"
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:theme="@style/container"
-        android:paddingVertical="5dp"
+        android:paddingVertical="10dp"
         android:background="@drawable/layout_round_edges50dp">
 
         <ImageView
-            android:id="@+id/my_image_view"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/grannyPic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             tools:src="@tools:sample/avatars"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_image" />
         <LinearLayout
