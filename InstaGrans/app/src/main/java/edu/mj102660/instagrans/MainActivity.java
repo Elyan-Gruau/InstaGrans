@@ -50,10 +50,12 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
-    private final String hostIp = "172.19.20.130"; //todo à changer
+    private final String hostIp = "10.20.102.245"; //todo à changer
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
+
+    NotificationBuilder notificationBuilder = new NotificationBuilder(this);
 
 
 
@@ -80,11 +82,17 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
             throw new RuntimeException(e);
         }
 
+        // Lancement de la notification
+        notificationBuilder.buildNotification();
+
+
     }
 
 
     @Override
     public void onClickGranny(int index) {
+
+
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         intent.putExtra(getString(R.string.GRANNY), index);
         startActivity(intent);
