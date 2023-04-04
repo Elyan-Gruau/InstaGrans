@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 
@@ -31,6 +32,7 @@ public class ProfileDishesAdapter extends BaseAdapter {
     public ProfileDishesAdapter(ClickableActivity activity, ArrayList<Dish> dishes) {
         this.activity = activity;
         this.dishes = dishes;
+        System.out.println("Alain" + dishes.size());
         inflater = LayoutInflater.from(activity.getContext());
     }
 
@@ -38,7 +40,7 @@ public class ProfileDishesAdapter extends BaseAdapter {
         return dishes.size();
     }
 
-    public Object getItem(int position) {
+    public Dish getItem(int position) {
         return dishes.get(position);
     }
 
@@ -53,11 +55,16 @@ public class ProfileDishesAdapter extends BaseAdapter {
         layoutItem = convertView == null ? inflater.inflate(R.layout.profile_dish_layout, parent, false) : convertView;
 
         ImageView imageDish = layoutItem.findViewById(R.id.dish_image);
-
         String resName = (dishes.get(position).getUrlImage());
+        resName = resName.replace(".png", "");
         int resID =  parent.getResources().getIdentifier(resName, "drawable", activity.getContext().getPackageName());
 
         imageDish.setImageResource(resID);
+
+        TextView dish_name = layoutItem.findViewById(R.id.dish_name);
+
+        dish_name.setText(dishes.get(position).getName());
+
 
 //        layoutItem.setOnClickListener(click -> activity.onClickGranny(position));
 

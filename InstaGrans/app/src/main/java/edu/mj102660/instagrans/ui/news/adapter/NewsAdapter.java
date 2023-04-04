@@ -63,7 +63,7 @@ public class NewsAdapter extends BaseAdapter {
         // Granny Pic
         ImageView imageProfile = layoutItem.findViewById(R.id.grannyPic);
 
-        String resName = (news.getGranny().getUrlPicture());
+        String resName = (newsList.get(i).getGranny().getUrlPicture());
         resName = resName.replace(".png", "");
         int resID =  activity.getContext().getResources().getIdentifier(resName, "drawable", activity.getContext().getPackageName());
 

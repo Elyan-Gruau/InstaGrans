@@ -47,8 +47,9 @@ public class DiscoverFragment extends Fragment implements ClickableActivity {
         ImageButton searchButton = root.findViewById(R.id.search_button);
         EditText searchText = root.findViewById(R.id.search_bar);
 
-        ListView listResults = root.findViewById(R.id.listGrannies);
 
+        //Initialisation et remplissage de la listView
+        ListView listResults = root.findViewById(R.id.listGrannies);
         DiscoverAdapter adapter = new DiscoverAdapter(this);
         listResults.setAdapter(adapter);
 

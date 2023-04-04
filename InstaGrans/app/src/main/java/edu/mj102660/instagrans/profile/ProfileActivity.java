@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +71,9 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
         ImageButton subscribe = findViewById(R.id.subcribe);
 
         TextView name = findViewById(R.id.name);
-        name.setText(granny.getName());
+        name.setText(granny.getName() + ", " + granny.getAge() + " " + getString(R.string.yearsold));
+
+
 
         TextView description = findViewById(R.id.desc);
         description.setText(granny.getDesc());
@@ -85,7 +88,10 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
         Locale locale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
-        button.setText(getString(R.string.rent) + granny.getName() + currencyFormatter.format(granny.getPrice()));
+        button.setText(getString(R.string.rent) + " " + granny.getName() + " " + currencyFormatter.format(granny.getPrice()) + " / h");
+        ProfileDishesAdapter adapter = new ProfileDishesAdapter(this, granny.getDishes());
+
+        System.out.println(granny.getDishes().size());
 
         button.setOnClickListener(view -> {
             Panier panier = Panier.getInstance();
@@ -97,8 +103,7 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
 
         GridView image_grid = findViewById(R.id.image_grid);
 
-//        ProfileDishesAdapter adapter = new ProfileDishesAdapter(this, granny.getDishes());
-//        image_grid.setAdapter(adapter);
+        image_grid.setAdapter(adapter);
 
 
     }
@@ -110,6 +115,6 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
 
     @Override
     public Context getContext() {
-        return null;
+        return getApplicationContext();
     }
 }
