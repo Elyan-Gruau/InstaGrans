@@ -15,7 +15,9 @@
             android:id="@+id/textNews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/news_welcome" />
+            android:text="@string/news_welcome"
+            android:textSize="25sp"
+            android:layout_margin="20dp"/>
 
         <ListView
             android:id="@+id/listNews"

@@ -15,6 +15,9 @@ public class NewsList extends ArrayList<News> {
             news.generateNews(layout);
             add(news);
         }
+        System.out.println("NewsList: " + size() + " news generated");
+        System.out.println("NewsList (0): " + get(0).getNews());
+        System.out.println("NewsList (24): " + get(24).getNews());
     }
 }
 
