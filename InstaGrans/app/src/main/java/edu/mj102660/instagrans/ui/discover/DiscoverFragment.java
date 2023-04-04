@@ -1,10 +1,14 @@
 package edu.mj102660.instagrans.ui.discover;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 
 import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.R;
+import edu.mj102660.instagrans.NotificationBuilder;
 import edu.mj102660.instagrans.databinding.FragmentDiscoverBinding;
 import edu.mj102660.instagrans.grans.Granny;
 import edu.mj102660.instagrans.grans.Grans;
@@ -61,6 +66,20 @@ public class DiscoverFragment extends Fragment implements ClickableActivity {
                 startActivity(intent);
             }
 
+        });
+
+        // Lancement de la notification
+        NotificationBuilder notificationBuilder = new NotificationBuilder(this.getActivity());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("Test Channel", "Test Channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = this.getActivity().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        Button test = root.findViewById(R.id.testNotification);
+        test.setOnClickListener(view -> {
+            notificationBuilder.buildNotification("A", "B");
         });
 
         return root;

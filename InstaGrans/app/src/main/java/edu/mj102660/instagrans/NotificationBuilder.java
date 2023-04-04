@@ -22,21 +22,15 @@ public class NotificationBuilder {
         this.activity = activity;
     }
 
-    public void buildNotification() {
+    public void buildNotification(String title, String content) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, "Test Channel")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("My notification")
-                .setContentText("Hello World!")
+                .setContentTitle(title)
+                .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
 
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(activity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Test Channel", "Test Channel", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = activity.getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-            return;
-        }
         if (ActivityCompat.checkSelfPermission(activity, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
