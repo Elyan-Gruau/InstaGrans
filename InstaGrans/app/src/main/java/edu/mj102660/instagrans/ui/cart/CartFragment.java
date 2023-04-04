@@ -37,7 +37,7 @@ public class CartFragment extends Fragment {
         binding = FragmentCartBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //final TextView textView = binding.textCart;
+
 
         Panier panier = Panier.getInstance();
         if (panier.getGranny() != null) {

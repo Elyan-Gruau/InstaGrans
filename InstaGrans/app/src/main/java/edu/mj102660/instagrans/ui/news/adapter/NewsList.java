@@ -14,6 +14,7 @@ public class NewsList extends ArrayList<News> {
     public NewsList(View layout) {
 
         for (Granny granny : Grans.getInstance()) {
+            //Création des news
             News news = new News(granny);
             news.generateNews(layout);
             add(news);
