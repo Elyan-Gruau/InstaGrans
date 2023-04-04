@@ -76,12 +76,12 @@ public class CartFragment extends Fragment {
 
             Button checkout = binding.buttonCheckout;
             checkout.setOnClickListener(view -> {
-                notificationBuilder.buildNotification("Commande en cours", panier.getGranny().getName() + " est en route ! ");
+                notificationBuilder.buildNotification(getString(R.string.order), panier.getGranny().getName() + getString(R.string.ontw));
             });
 
             Button paypal = binding.buttonPaypal;
             paypal.setOnClickListener(view -> {
-                notificationBuilder.buildNotification("Commande PAYPAL en cours", panier.getGranny().getName() + " est en route ! ");
+                notificationBuilder.buildNotification(getString(R.string.paypal_order), panier.getGranny().getName() + getString(R.string.ontw));
             });
         }
         return root;

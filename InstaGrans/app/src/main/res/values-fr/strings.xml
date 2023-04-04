@@ -10,4 +10,7 @@
     <string name="yearsold">ans</string>
     <string name="news_welcome">Vous avez peut être manqué</string>
     <string name="rent">Louer</string>
+    <string name="order">Commande en cours</string>
+    <string name="paypal_order">Commande PAYPAL en cours</string>
+    <string name="ontw">est en route !</string>
 </resources>
