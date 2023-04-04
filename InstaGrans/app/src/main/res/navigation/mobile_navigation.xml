@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_discover">
+
+
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="edu.mj102660.instagrans.ui.news.NewsFragment"
+        tools:layout="@layout/fragment_news"/>
+
+    <fragment
+        android:id="@+id/navigation_discover"
+        android:name="edu.mj102660.instagrans.ui.discover.DiscoverFragment"
+        tools:layout="@layout/fragment_discover"/>
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="edu.mj102660.instagrans.ui.cart.CartFragment"
+        tools:layout="@layout/fragment_cart"/>
+
+</navigation>

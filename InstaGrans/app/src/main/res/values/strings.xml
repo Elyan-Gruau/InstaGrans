@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">InstaGrans</string>
+    <string name="title_discover">Home</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_news">News</string>
+    <string name="search_text">Search for Grans</string>
+    <string name="yearsold">y/o</string>
+    <string name="news_sentence_0">"learned to make "</string>
+    <string name="news_welcome">You might have missed</string>
+
+    <string name="rent">Rent </string>
+
+    <string name="order">Pending order</string>
+    <string name="paypal_order">PAYPAL pending order</string>
+    <string name="ontw">" is on the way!"</string>
+
+    <string name="search_empty">You must search for something</string>
+
+    <string name="GRANNY" translatable="false">granny</string>
+    <string name="SEARCH" translatable="false">search</string>
+    <string name="checkout">Checkout</string>
+    <string name="price_ttc">PRICE ATI</string>
+    <string name="price">PRICE</string>
+    <string name="tva">VAT</string>
+    <string name="added_to_cart">Granny added to cart</string>
+
+</resources>

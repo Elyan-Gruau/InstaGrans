@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstaGrans</string>
+    <string name="title_discover">Accueil</string>
+    <string name="title_cart">Panier</string>
+    <string name="title_news">Nouvelles</string>
+    <string name="search_text">Cherchez des Grans</string>
+    <string name="search_empty">Vous devez cherchez quelque chose</string>
+    <string name="news_sentence_0">"a appris à faire "</string>
+    <string name="yearsold">ans</string>
+    <string name="news_welcome">Vous avez peut être manqué</string>
+    <string name="rent">Louer</string>
+    <string name="order">Commande en cours</string>
+    <string name="paypal_order">Commande PAYPAL en cours</string>
+    <string name="ontw">" est en route !"</string>
+    <string name="checkout">Payement</string>
+    <string name="price_ttc">PRIX TTC</string>
+    <string name="price">PRIX</string>
+    <string name="tva">TVA</string>
+    <string name="added_to_cart">Granny ajoutée au panier</string>
+</resources>

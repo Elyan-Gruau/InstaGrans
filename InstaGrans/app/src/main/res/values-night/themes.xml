@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.InstaGrans" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/courge</item>
+        <item name="colorPrimaryVariant">@color/courge</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="textOnCourge">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/courge</item>
+    </style>
+    <style name="imageButton">
+        <item name="android:backgroundTint">@color/courge</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+    <style name="container">
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+    <style name="cocontainer">
+        <item name="android:background">@color/darkgrey</item>
+        <item name="android:backgroundTint">@color/darkgrey</item>
+    </style>
+</resources>
