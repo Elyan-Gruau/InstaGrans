@@ -2,12 +2,16 @@ package edu.mj102660.instagrans.ui.cart;
 
 import static edu.mj102660.instagrans.RoundingImage.createRoundedBitmapImageDrawableWithBorder;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.w3c.dom.Text;
 
+import edu.mj102660.instagrans.NotificationBuilder;
 import edu.mj102660.instagrans.R;
 import edu.mj102660.instagrans.cart.Panier;
 import edu.mj102660.instagrans.databinding.FragmentCartBinding;
@@ -37,7 +42,7 @@ public class CartFragment extends Fragment {
         Panier panier = Panier.getInstance();
         if (panier.getGranny() != null) {
             binding.name.setText(panier.getGranny().getName());
-            binding.age.setText(panier.getGranny().getAge());
+            binding.age.setText(String.valueOf(panier.getGranny().getAge()));
 
             ImageView granny_pic = binding.myImageView;
             String resName = (panier.getGranny().getUrlPicture());
@@ -59,6 +64,25 @@ public class CartFragment extends Fragment {
 
             binding.tva.setText(String.valueOf(TVA*100)+ " %");
             binding.priceTTC.setText(String.valueOf(priceTVA)+ " €");
+
+            // Lancement de la notification
+            NotificationBuilder notificationBuilder = new NotificationBuilder(this.getActivity());
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel("Test Channel", "Test Channel", NotificationManager.IMPORTANCE_DEFAULT);
+                NotificationManager manager = this.getActivity().getSystemService(NotificationManager.class);
+                manager.createNotificationChannel(channel);
+            }
+
+            Button checkout = binding.buttonCheckout;
+            checkout.setOnClickListener(view -> {
+                notificationBuilder.buildNotification("Commande en cours", panier.getGranny().getName() + " est en route ! ");
+            });
+
+            Button paypal = binding.buttonPaypal;
+            paypal.setOnClickListener(view -> {
+                notificationBuilder.buildNotification("Commande PAYPAL en cours", panier.getGranny().getName() + " est en route ! ");
+            });
         }
         return root;
     }

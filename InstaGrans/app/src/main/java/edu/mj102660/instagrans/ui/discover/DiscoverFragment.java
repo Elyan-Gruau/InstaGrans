@@ -68,20 +68,6 @@ public class DiscoverFragment extends Fragment implements ClickableActivity {
 
         });
 
-        // Lancement de la notification
-        NotificationBuilder notificationBuilder = new NotificationBuilder(this.getActivity());
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Test Channel", "Test Channel", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = this.getActivity().getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-        Button test = root.findViewById(R.id.testNotification);
-        test.setOnClickListener(view -> {
-            notificationBuilder.buildNotification("A", "B");
-        });
-
         return root;
     }
 

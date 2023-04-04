@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -90,8 +91,8 @@ public class ProfileActivity extends AppCompatActivity implements ClickableActiv
             Panier panier = Panier.getInstance();
             panier.setGranny(granny);
 
-            Intent intent = new Intent(getApplicationContext(), CartFragment.class);
-            startActivity(intent);
+            Toast toast = Toast.makeText(this, "Granny ajoutée au panier", Toast.LENGTH_SHORT);
+            toast.show();
         });
 
         GridView image_grid = findViewById(R.id.image_grid);
