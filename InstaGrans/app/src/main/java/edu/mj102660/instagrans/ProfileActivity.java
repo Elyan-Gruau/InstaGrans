@@ -11,11 +11,14 @@ public class ProfileActivity extends AppCompatActivity {
 
     ImageButton backButton;
 
+    Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        intent = new Intent(this, ProfileActivity.class);
 
         backButton = findViewById(R.id.backButton);
 

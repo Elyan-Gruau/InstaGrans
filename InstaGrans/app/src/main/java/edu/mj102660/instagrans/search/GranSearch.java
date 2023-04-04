@@ -17,15 +17,6 @@ public class GranSearch {
                     result.add(granny);
                 }
             }
-            else {
-                granny.getDishes().forEach(dish -> {
-                    if(dish.getName().contains(request)){
-                        if(!result.contains(granny)){
-                            result.add(granny);
-                        }
-                    }
-                });
-            }
         });
 
         return result;

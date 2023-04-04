@@ -36,6 +36,7 @@ import java.util.zip.GZIPInputStream;
 
 import edu.mj102660.instagrans.databinding.ActivityMainBinding;
 import edu.mj102660.instagrans.grans.Granny;
+import edu.mj102660.instagrans.grans.Grans;
 import edu.mj102660.instagrans.grans.dish.Dish;
 import edu.mj102660.instagrans.network.HttpHandler;
 import edu.mj102660.instagrans.search.SearchResultActivity;
@@ -49,11 +50,10 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
     EditText searchText;
     ProgressDialog pDialog ;
     private ListView lv;
-    private final String hostIp = "172.19.20.39"; //todo à changer
+    private final String hostIp = "172.19.20.130"; //todo à changer
 
     Intent intent;
     ArrayList<Granny> grannies = new ArrayList<>();
-
 
 
 
@@ -71,9 +71,6 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        news();
-        cart();
-
 
         //String json = getJsonString("http://localhost:8080/getGrannies");
         new GetGrannies().execute();
@@ -82,20 +79,9 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("GranniesLengh "+grannies.size());
-
 
     }
 
-
-    private void news() {
-
-    }
-
-
-    private void cart() {
-
-    }
 
     @Override
     public void onClickGranny(int index) {
@@ -200,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements ClickableActivity
                             granny.addDish(dish);
                         }
 
-                        grannies.add(granny);
+                        Grans.getInstance().add(granny);
                     }
                     System.out.println("Grannies Fetched.");
 

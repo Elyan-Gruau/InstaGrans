@@ -4,6 +4,7 @@
     <string name="title_cart">Cart</string>
     <string name="title_news">News</string>
     <string name="search_text">Search for Grans</string>
+    <string name="yearsold">y/o</string>
 
     <string name="search_empty">You must search for something</string>
 
