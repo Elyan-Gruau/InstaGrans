@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+
+import edu.mj102660.instagrans.ClickableActivity;
 import edu.mj102660.instagrans.R;
 import edu.mj102660.instagrans.databinding.FragmentDiscoverBinding;
+import edu.mj102660.instagrans.grans.Granny;
+import edu.mj102660.instagrans.grans.Grans;
+import edu.mj102660.instagrans.search.GranSearch;
+import edu.mj102660.instagrans.search.ResultAdapter;
 import edu.mj102660.instagrans.search.SearchResultActivity;
+import edu.mj102660.instagrans.ui.discover.adapter.DiscoverAdapter;
 
-public class DiscoverFragment extends Fragment {
+public class DiscoverFragment extends Fragment implements ClickableActivity {
 
     private FragmentDiscoverBinding binding;
 
@@ -32,6 +41,11 @@ public class DiscoverFragment extends Fragment {
 
         ImageButton searchButton = root.findViewById(R.id.search_button);
         EditText searchText = root.findViewById(R.id.search_bar);
+
+        ListView listResults = root.findViewById(R.id.listGrannies);
+
+        DiscoverAdapter adapter = new DiscoverAdapter(this);
+        listResults.setAdapter(adapter);
 
 
         searchButton.setOnClickListener(view -> {
@@ -56,5 +70,10 @@ public class DiscoverFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onClickGranny(int index) {
+
     }
 }
